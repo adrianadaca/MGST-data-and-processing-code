@@ -80,7 +80,7 @@ for j, slip in enumerate(list_of_df_lists):
         concatenation = functools.reduce((lambda a, b: pd.concat([a, b])), expt_type)
         # average
         avg = concatenation.groupby(level=0).mean()
-        avg.to_csv('avg-proposal-%s_%s.csv' % (j, k), index=True, index_label='Timestamp')
+        avg.to_csv('avg-%s_%s.csv' % (j, k), index=True, index_label='Timestamp')
         avg_dfs.append(avg)
         # standard deviation
         std = concatenation.groupby(level=0).std()

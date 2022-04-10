@@ -221,6 +221,7 @@ for j in range(0, len(slip20_trio_files)):
     current = interpolate(slip20_trio_files[j].index[0:length - 500] - slip20_trio_files[j].index[0], fn.index,
                        slip20_trio_files[j].maxon_current[0:length - 500])
     current = pd.DataFrame(current / 1000)
+    current.set_index(fn.index, inplace=True)
 
     # export processed timeseries data to csv
     size = np.amin(np.array([fn.size, dp.size, sink.size]))
