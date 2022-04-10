@@ -1,15 +1,13 @@
-import pandas as pd
-import numpy as np
-import csv
-import glob
-import datetime as dt
-from scipy.signal import savgol_filter
-from bokeh.plotting import figure, output_file, show
-from bokeh.models.formatters import DatetimeTickFormatter
-from bokeh.models import LinearAxis, Range1d, HoverTool, Span, Label
-import matplotlib.pyplot as plt
-from bokeh.io import export_png
 import math
+
+import numpy as np
+import pandas as pd
+from bokeh.io import export_png
+from bokeh.models import HoverTool
+from bokeh.models.formatters import DatetimeTickFormatter
+from bokeh.plotting import figure, show
+from scipy.signal import savgol_filter
+
 # local imports
 from interpolate import interpolate
 

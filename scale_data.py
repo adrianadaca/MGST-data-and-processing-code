@@ -1,20 +1,11 @@
-from plotly import tools
-import plotly.plotly as py
-import plotly.graph_objs as go
-import pandas as pd
-import numpy as np
-import csv
 import glob
 import re
-import datetime as dt
-from scipy.signal import savgol_filter
-from bokeh.plotting import figure, output_file, show
-from bokeh.models.formatters import DatetimeTickFormatter
-from bokeh.models import LinearAxis, Range1d, HoverTool, Span, Label
+
 import matplotlib.pyplot as plt
-from bokeh.io import export_png
-import math
+import numpy as np
+import pandas as pd
 from matplotlib.lines import Line2D
+from scipy.signal import savgol_filter
 
 # import data
 files = glob.glob("processed data/*.csv")
@@ -44,9 +35,9 @@ for i, file in enumerate(files):
     g.append(g_level)
 
     g_accel = {"1-g": 9.81,  # gravitational acceleration
-        "lunar-g": 1.62}
+               "lunar-g": 1.62}
     L = {"1-g": 0.075,  # wheel radius
-        "lunar-g": 0.15}
+         "lunar-g": 0.15}
     w = {"1-g": 0.462,  # wheel angular velocity
          "lunar-g": 0.1333}
     h = {"1-g": 0.185,  # distance between center of force/torque sensor and center of wheel
@@ -75,7 +66,7 @@ for i, file in enumerate(files):
     P_ = (t_m * w[g_level[0]]) / (file.fn * np.sqrt(L[g_level[0]] * g_accel[g_level[0]]))
 
     # smooth a bit
-    P_ = savgol_filter(P_, 41, 2)
+    # P_ = savgol_filter(P_, 41, 2)
 
     # making the plots
     if g_level[0] == 'lunar-g':
@@ -100,13 +91,13 @@ for i, file in enumerate(files):
 
         style = "r--"
 
-        t_lunar = time_float.multiply(np.sqrt(1.62/0.15))
+        t_lunar = time_float.multiply(np.sqrt(1.62 / 0.15))
         t1 = np.where(t_ >= t_lunar[1430])
         t1 = t1[0][0]
         t2 = np.where(t_ >= 68)
         t2 = t2[0][0]
 
-        scaled_time = t_.multiply(np.sqrt(L['lunar-g']/g_accel['lunar-g']))
+        scaled_time = t_.multiply(np.sqrt(L['lunar-g'] / g_accel['lunar-g']))
         dp_w = pd.DataFrame(dp_)
         dp_w.set_index(scaled_time, inplace=True)
         sinkage = pd.DataFrame(z_ * L['lunar-g'] * 1000)

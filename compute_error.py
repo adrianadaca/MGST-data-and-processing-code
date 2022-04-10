@@ -1,22 +1,11 @@
-from plotly import tools
-import plotly.plotly as py
-import plotly.graph_objs as go
 import pandas as pd
 import numpy as np
-import csv
 import glob
 import re
-import datetime as dt
-from scipy.signal import savgol_filter
-from bokeh.plotting import figure, output_file, show
-from bokeh.models.formatters import DatetimeTickFormatter
-from bokeh.models import LinearAxis, Range1d, HoverTool, Span, Label
 import matplotlib.pyplot as plt
 from bokeh.io import export_png
-import math
 from matplotlib.lines import Line2D
 import functools
-from sklearn.metrics import mean_squared_error
 
 # import data
 files = glob.glob("scaled data/*.csv")

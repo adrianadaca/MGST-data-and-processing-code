@@ -1,8 +1,8 @@
-import pandas as pd
 import numpy as np
 
+
 def interpolate(df1_index, df2_index, df1_column):
-    '''
+    """
     This function uses linear interpolation to project the column values from a DataFrame with larger time steps onto
     the timestamps of a second DataFrame with smaller time steps.
     This is useful for doing calculations with data collected simultaneously from different sources that have
@@ -13,7 +13,7 @@ def interpolate(df1_index, df2_index, df1_column):
     using DataFrame.set_index(pd.DatetimeIndex(DataFrame['timestamp_column_name']), inplace=True)
     Example input: df1_column_projected = interpolate(df1.index, df2.index, df1.column_name)
     The output is the specified column of the first DataFrame projected onto the timestamps of the second DataFrame.
-    '''
+    """
 
     df2_column_length = np.size(df2_index)
     df1_column_projected = np.zeros(df2_column_length)
@@ -30,9 +30,9 @@ def interpolate(df1_index, df2_index, df1_column):
                 df1_column_projected[j] = df1_column[index1]
             else:
                 df1_column_projected[j] = (df2_index[j] - df1_index[index1]) * \
-                                        (df1_column[index2] - df1_column[index1]) / \
-                                        (df1_index[index2] - df1_index[index1]) + \
-                                        df1_column[index1]
+                                          (df1_column[index2] - df1_column[index1]) / \
+                                          (df1_index[index2] - df1_index[index1]) + \
+                                          df1_column[index1]
 
         else:
             df1_column_projected[j] = 0
