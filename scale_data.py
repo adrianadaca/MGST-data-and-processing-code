@@ -66,7 +66,7 @@ for i, file in enumerate(files):
     P_ = (t_m * w[g_level[0]]) / (file.fn * np.sqrt(L[g_level[0]] * g_accel[g_level[0]]))
 
     # smooth a bit
-    # P_ = savgol_filter(P_, 41, 2)
+    P_ = savgol_filter(P_, 41, 2)
 
     # making the plots
     if g_level[0] == 'lunar-g':
