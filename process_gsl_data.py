@@ -1,21 +1,17 @@
-from plotly import tools
-import plotly.plotly as py
-import plotly.graph_objs as go
 import pandas as pd
-import numpy as np
-import csv
 import glob
 import re
-import datetime as dt
-from scipy.signal import savgol_filter
-from bokeh.plotting import figure, output_file, show
-from bokeh.models.formatters import DatetimeTickFormatter
-from bokeh.models import LinearAxis, Range1d, HoverTool, Span, Label
-import matplotlib.pyplot as plt
+
+import numpy as np
+import pandas as pd
 from bokeh.io import export_png
-import math
-from interpolate import interpolate
+from bokeh.models import HoverTool
+from bokeh.models.formatters import DatetimeTickFormatter
+from bokeh.plotting import figure, show
+from scipy.signal import savgol_filter
+
 from average import average
+from interpolate import interpolate
 
 # specify directory where the FTS files, trio files, FTS offsets, and slope data are
 directory = 'GSL data'
