@@ -169,7 +169,7 @@ plot3.yaxis.axis_label_text_font_size = "14pt"
 plot3.yaxis.major_label_text_font_size = "14pt"
 plot3.legend.label_text_font_size = "14pt"
 show(plot3)
-export_png(plot3, filename="drawbar-pull-lunar.png")
+export_png(plot3, filename="plots/drawbar-pull-lunar.png")
 
 # plot sinkage
 ylabel = 'Sinkage (mm)'
@@ -296,4 +296,4 @@ plot.yaxis.axis_label_text_font_size = "14pt"
 plot.yaxis.major_label_text_font_size = "14pt"
 plot.legend.label_text_font_size = "14pt"
 show(plot)
-export_png(plot, filename="sinkage-lunar.png")
+export_png(plot, filename="plots/sinkage-lunar.png")

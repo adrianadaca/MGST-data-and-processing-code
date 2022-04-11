@@ -165,16 +165,16 @@ plt.show(sinkage_plot_70)
 plt.show(power_plot_20)
 plt.show(power_plot_70)
 
-dp_plot_20.savefig('scaled-dp-20.png')
-dp_plot_70.savefig('scaled-dp-70.png')
-sinkage_plot_20.savefig('scaled-sinkage-20.png')
-sinkage_plot_70.savefig('scaled-sinkage-70.png')
-power_plot_20.savefig('scaled-power-20.png')
-power_plot_70.savefig('scaled-power-70.png')
+dp_plot_20.savefig('plots/scaled-dp-20.png')
+dp_plot_70.savefig('plots/scaled-dp-70.png')
+sinkage_plot_20.savefig('plots/scaled-sinkage-20.png')
+sinkage_plot_70.savefig('plots/scaled-sinkage-70.png')
+power_plot_20.savefig('plots/scaled-power-20.png')
+power_plot_70.savefig('plots/scaled-power-70.png')
 
 # make a file w/ all the averages:
 all_data = pd.concat([pd.DataFrame(slips), pd.DataFrame(g), pd.DataFrame(avg_P_), pd.DataFrame(avg_dp_),
                       pd.DataFrame(max_z_)], axis=1)
 all_data.columns = ['Slip', 'G-Level', 'Average Dimensionless Power', 'Average DP/W', 'Maximum z/L']
 
-all_data.to_csv('scaled_gsl_averages.csv', index=False)
+all_data.to_csv('averaged data/scaled_gsl_averages.csv', index=False)

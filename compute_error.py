@@ -69,7 +69,7 @@ for j, slip in enumerate(list_of_df_lists):
         concatenation = functools.reduce((lambda a, b: pd.concat([a, b])), expt_type)
         # average
         avg = concatenation.groupby(level=0).mean()
-        avg.to_csv('avg-%s_%s.csv' % (j, k), index=True, index_label='Timestamp')
+        avg.to_csv('averaged data/avg-%s_%s.csv' % (j, k), index=True, index_label='Timestamp')
         avg_dfs.append(avg)
         # standard deviation
         std = concatenation.groupby(level=0).std()
@@ -227,12 +227,12 @@ for item in (axdp20.get_xticklabels() + axdp20.get_yticklabels() + axdp70.get_xt
              axz20.get_xticklabels() + axz20.get_yticklabels() + axz70.get_xticklabels() + axz70.get_yticklabels()):
     item.set_fontsize(12)
 
-dp_plot_20.savefig('gsl-dp-20.png')
-dp_plot_70.savefig('gsl-dp-70.png')
-sinkage_plot_20.savefig('gsl-sinkage-20.png')
-sinkage_plot_70.savefig('gsl-sinkage-70.png')
-power_plot_20.savefig('gsl-power-20.png')
-power_plot_70.savefig('gsl-power-70.png')
+dp_plot_20.savefig('plots/gsl-dp-20.png')
+dp_plot_70.savefig('plots/gsl-dp-70.png')
+sinkage_plot_20.savefig('plots/gsl-sinkage-20.png')
+sinkage_plot_70.savefig('plots/gsl-sinkage-70.png')
+power_plot_20.savefig('plots/gsl-power-20.png')
+power_plot_70.savefig('plots/gsl-power-70.png')
 
 plt.show(dp_plot_20)
 plt.show(dp_plot_70)

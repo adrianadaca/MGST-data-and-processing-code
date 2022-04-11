@@ -161,7 +161,7 @@ for i, plot in enumerate(plots):
     plot.yaxis.major_label_text_font_size = "14pt"
     plot.legend.label_text_font_size = "14pt"
     show(plot)
-    export_png(plot, filename="%s-%s.png" % (names[i], directory))
+    export_png(plot, filename="plots/%s-%s.png" % (names[i], directory))
 
 # save average/max data
 all_data = pd.concat([pd.DataFrame(date_times), pd.DataFrame(slips), pd.DataFrame(sinkage), pd.DataFrame(current),
@@ -172,4 +172,4 @@ print(all_data)
 all_data['Repeat'] = all_data.groupby(['Slip'])['Date_Time'].rank(method='first')
 all_data['Repeat'] = all_data['Repeat'].map(lambda x: chr(ord('`') + int(x)))
 
-all_data.to_csv('%s_averages.csv' % directory, index=False)
+all_data.to_csv('averaged data/%s_averages.csv' % directory, index=False)
