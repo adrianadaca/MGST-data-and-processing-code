@@ -1,3 +1,5 @@
 .idea
 .DS_Store
 __pycache__
+process_gsl_data.html
+process_flight_data.html
