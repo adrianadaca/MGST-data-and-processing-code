@@ -1,7 +1,7 @@
-bokeh
-matplotlib
-numpy
-pandas
-plotly
-scipy
-selenium
+bokeh==1.3.4
+matplotlib==3.0.0
+numpy==1.21.2
+pandas==1.1.5
+plotly==3.4.2
+scipy==1.3.0
+selenium==3.141.0
