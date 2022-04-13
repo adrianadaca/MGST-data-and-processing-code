@@ -93,25 +93,28 @@ std_list_70 = [lunar_g_std[1], gsl_std[1]]
 
 # 20% slip:
 length_20 = np.where(list_20[0].index >= 20)[0][0]
+start_20 = np.where(list_20[0].index >= 5)[0][0]
+
 # 70% slip
 length_70 = np.where(list_70[0].index >= 20)[0][0]
+start_70 = np.where(list_70[0].index >= 5)[0][0]
 
 # MSPE - mean squared percent error
-lunar_dp_20 = list_20[0].dp.iloc[10369:length_20]
-lunar_p_20 = list_20[0].p.iloc[10369:length_20]
-lunar_z_20 = list_20[0].z.iloc[10369:length_20]
-lunar_dp_70 = list_70[0].dp.iloc[9132:length_70]
-lunar_p_70 = list_70[0].p.iloc[9132:length_70]
-lunar_z_70 = list_70[0].z.iloc[9132:length_70]
+lunar_dp_20 = list_20[0].dp.iloc[start_20:length_20]
+lunar_p_20 = list_20[0].p.iloc[start_20:length_20]
+lunar_z_20 = list_20[0].z.iloc[start_20:length_20]
+lunar_dp_70 = list_70[0].dp.iloc[start_70:length_70]
+lunar_p_70 = list_70[0].p.iloc[start_70:length_70]
+lunar_z_70 = list_70[0].z.iloc[start_70:length_70]
 
 # MSPE = np.mean(np.square(((y_true - y_pred) / y_true)), axis=0)
-GSL_MSPE_dp_20 = np.mean(np.square(((lunar_dp_20 - list_20[1].dp.iloc[10369:length_20]) / lunar_dp_20)), axis=0) * 100
-GSL_MSPE_p_20 = np.mean(np.square(((lunar_p_20 - list_20[1].p.iloc[10369:length_20]) / lunar_p_20)), axis=0) * 100
-GSL_MSPE_z_20 = np.mean(np.square(((lunar_z_20 - list_20[1].z.iloc[10369:length_20]) / lunar_z_20)), axis=0) * 100
+GSL_MSPE_dp_20 = np.mean(np.square(((lunar_dp_20 - list_20[1].dp.iloc[start_20:length_20]) / lunar_dp_20)), axis=0) * 100
+GSL_MSPE_p_20 = np.mean(np.square(((lunar_p_20 - list_20[1].p.iloc[start_20:length_20]) / lunar_p_20)), axis=0) * 100
+GSL_MSPE_z_20 = np.mean(np.square(((lunar_z_20 - list_20[1].z.iloc[start_20:length_20]) / lunar_z_20)), axis=0) * 100
 
-GSL_MSPE_dp_70 = np.mean(np.square(((lunar_dp_70 - list_70[1].dp.iloc[9132:length_70]) / lunar_dp_70)), axis=0) * 100
-GSL_MSPE_p_70 = np.mean(np.square(((lunar_p_70 - list_70[1].p.iloc[9132:length_70]) / lunar_p_70)), axis=0) * 100
-GSL_MSPE_z_70 = np.mean(np.square(((lunar_z_70 - list_70[1].z.iloc[9132:length_70]) / lunar_z_70)), axis=0) * 100
+GSL_MSPE_dp_70 = np.mean(np.square(((lunar_dp_70 - list_70[1].dp.iloc[start_70:length_70]) / lunar_dp_70)), axis=0) * 100
+GSL_MSPE_p_70 = np.mean(np.square(((lunar_p_70 - list_70[1].p.iloc[start_70:length_70]) / lunar_p_70)), axis=0) * 100
+GSL_MSPE_z_70 = np.mean(np.square(((lunar_z_70 - list_70[1].z.iloc[start_70:length_70]) / lunar_z_70)), axis=0) * 100
 
 print('GSL_MSPE_dp_20', GSL_MSPE_dp_20)
 print('GSL_MSPE_z_20', GSL_MSPE_z_20)
