@@ -14,7 +14,7 @@ pip install -r requirements.txt
 conda install -c conda-forge firefox geckodriver
 ```
 
-### Instructions: 
+### Instructions
 Run in the following order
 1. process_flight_data.py
 2. process_gsl_data.py
